@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "creaton",
-    "slug": "creaton",
+    "name": "creaton-expo",
+    "slug": "creaton-expo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
