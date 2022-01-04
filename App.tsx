@@ -3,9 +3,11 @@ import {
   StyleSheet,
   Text, 
   View,
+  Button,
   SafeAreaView,
 } from 'react-native';
 import styled from 'styled-components';
+import tailwind from 'tailwind-rn';
 
 
 export default function App() {
@@ -13,10 +15,49 @@ export default function App() {
     <SafeAreaView>
       <View>
         <LogoImg source={require('./assets/creatonborder.png')} alt="logo" />
+        {/* Add 2 buttons  */}
+
+        <View style={tailwind('pt-80')}></View>
+
+        <View>
+
+          <EmailBtn
+            onPress={EmailButton}
+            title="Sign Up With Email"
+            color="#841584"
+            accessibilityLabel="Email Button" 
+          />
+          
+
+          <WCBtn
+            onPress={WalletConnectButton}
+            title="Sign Up With WalletConnect"
+            color="black"
+            accessibilityLabel="WalletConnect button"
+          />
+        
+        </View> 
+          
       </View>
     </SafeAreaView>
   );
 }
+
+
+function EmailButton() {
+
+}
+
+function WalletConnectButton() {
+
+}
+
+let EmailBtn = styled.Button`
+  padding-bottom:
+`;
+
+let WCBtn = styled.Button``;
+
 
 let LogoImg = styled.Image`
   margin-top: 50px;
