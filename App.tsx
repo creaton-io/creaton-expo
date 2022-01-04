@@ -9,9 +9,14 @@ import {
 import styled from 'styled-components';
 import { ThemeProvider } from 'react-native-ios-kit';
 import tailwind from 'tailwind-rn';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 
 export default function App() {
+  
   return (
     <SafeAreaView>
       <View>
@@ -48,19 +53,19 @@ export default function App() {
 }
 
 
-function EmailButton() {
+function EmailButton({ navigation }) {
   // Navigate to Email Button
-
+  navigation.navigate('EmailPage');
 }
 
-function WalletConnectButton() {
+function WalletConnectButton({ navigation }) {
   // Navigate to WC Button
-
+  navigation.navigate('WCPage');
 
 }
 
 let EmailBtn = styled.Button`
-  backgroundColor=red;
+
 `;
 
 let WCBtn = styled.Button``;
