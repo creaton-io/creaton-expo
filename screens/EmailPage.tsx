@@ -1,8 +1,9 @@
-import React from 'react'; 
+import React, { useState } from 'react'; 
 import { 
     StyleSheet,
     Text, 
     View,
+    TextInput,
     Button,
     SafeAreaView,
 } from 'react-native';
@@ -11,7 +12,11 @@ import tailwind from 'tailwind-rn';
 
   // Will need to integrate Magic Link 
 
+const [text, setText] = useState('');
+
 class EmailPage extends React.Component { 
+
+
     render() { 
         return(
             <SafeAreaView>
@@ -21,7 +26,21 @@ class EmailPage extends React.Component {
                         <Text>Email</Text>
                     </View>
 
-                    <View style={tailwind('pt-80')}></View>
+                    <TextInput
+                        style={{height: 40}}
+                        placeholder="Enter Your Email"
+                        onChangeText={text => setText(text)}
+                        defaultValue={text}
+                    />
+
+                    <TextInput
+                        style={{height: 40}}
+                        placeholder="Re-enter Email"
+                        onChangeText={text => setText(text)}
+                        defaultValue={text}
+                    />
+
+                    <View style={tailwind('pt-60')}></View>
 
                     <EnterEmailBtn
                         onPress={EnterBtn}
@@ -34,6 +53,8 @@ class EmailPage extends React.Component {
         );
     }
 }
+
+
 
 let EnterEmailBtn = styled.Button`
 
