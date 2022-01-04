@@ -7,6 +7,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 import styled from 'styled-components';
+import { ThemeProvider } from 'react-native-ios-kit';
 import tailwind from 'tailwind-rn';
 
 
@@ -23,16 +24,19 @@ export default function App() {
 
           <EmailBtn
             onPress={EmailButton}
+            color="purple"
             title="Sign Up With Email"
-            color="#841584"
             accessibilityLabel="Email Button" 
           />
+
+          <View style={tailwind('pt-20')}></View>
           
 
           <WCBtn
             onPress={WalletConnectButton}
             title="Sign Up With WalletConnect"
             color="black"
+            buttonStyle={{backgroundColor:'red'}}
             accessibilityLabel="WalletConnect button"
           />
         
@@ -45,15 +49,18 @@ export default function App() {
 
 
 function EmailButton() {
+  // Navigate to Email Button
 
 }
 
 function WalletConnectButton() {
+  // Navigate to WC Button
+
 
 }
 
 let EmailBtn = styled.Button`
-  padding-bottom:
+  backgroundColor=red;
 `;
 
 let WCBtn = styled.Button``;
