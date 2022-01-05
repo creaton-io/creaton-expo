@@ -58,6 +58,7 @@ function EmailButton({ navigation }) {
   navigation.navigate('EmailPage');
 }
 
+// Possible error
 function WalletConnectButton({ navigation }) {
   // Navigate to WC Button
   navigation.navigate('WCPage');
