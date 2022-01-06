@@ -1,4 +1,9 @@
-import React from 'react';
+import * as React from 'react';
+import {
+    withWalletConnect,
+    useWalletConnect,
+} from '@walletconnect/react-native-dapp';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { 
     StyleSheet,
     Text, 
@@ -7,28 +12,42 @@ import {
     SafeAreaView,
     Platform,
 } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import WalletConnectProvider from '@walletconnect/react-native-dapp';
 
-class WCPage extends React.Component {
-    render() { 
-        return(
-            <WalletConnectProvider
-                bridge="https://bridge.walletconnect.org"
-                clientMeta={{
-                    description: 'Connect with WalletConnect',
-                    url: 'https://walletconnect.org',
-                    icons: ['https://walletconnect.org/walletconnect-logo.png'],
-                    name: 'WalletConnect',
-                }}
-                redirectUrl={Platform.OS === 'web' ? window.location.origin : 'yourappscheme://'}
-                storageOptions= {{
-                    asyncStorage: AsyncStorage as any,
-                }}>
-                
-            </WalletConnectProvider>
-        );
+// This wraps the app in a WC provider for us 
+function WCWalletPage(): JSX.Element {
+    const connector = useWalletConnect(); // valid
+
+    if (!connector.connected) {
+        // Then we need to connect!
+        return <Button title="Connect" onPress={() => connector.connect()} />;
     }
-}
+
+    return <Button title="Kill Session" onPress={() => connector.killSession()} />;
+  }
+  
+  export default withWalletConnect(WCWalletPage, {
+    clientMeta: {
+      description: "Connect with WalletConnect",
+    },
+    redirectUrl:
+      Platform.OS === "web" ? window.location.origin : "yourappscheme://",
+    storageOptions: {
+      asyncStorage: AsyncStorage,
+    },
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

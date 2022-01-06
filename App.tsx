@@ -7,10 +7,11 @@ import {
   SafeAreaView,
 } from 'react-native';
 import styled from 'styled-components';
-import { ThemeProvider } from 'react-native-ios-kit';
+import { Magic } from '@magic-sdk/react-native';
 import tailwind from 'tailwind-rn';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { RainbowButton } from '@rainbow-me/rainbow-button';
 
 const Stack = createNativeStackNavigator();
 
@@ -44,6 +45,13 @@ export default function App() {
             buttonStyle={{backgroundColor:'red'}}
             accessibilityLabel="WalletConnect button"
           />
+
+          {/* Rainbow Button connected ( will need to test it) */}
+          <RainbowButton
+            chainId={1}
+            connectorOptions={{ bridge: 'https://bridge.walletconnect.org' }}
+            onConnectorInitialized={(connector) => console.log(connector)}
+          />,
         
         </View> 
           
