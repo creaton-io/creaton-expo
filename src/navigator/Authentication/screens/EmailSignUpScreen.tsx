@@ -92,18 +92,6 @@ const EmailSignUpScreen = () => {
 };
 
 
-//handles submit button
-async function submitButton() {
-  // Check for email login 
-
-  // if email is filled out, proceed to auth
-  
-  // if not, show alert 
-
-   await MAGIC_KEY.auth.loginWithMagicLink({ email: 'your.email@example.com' });
-
-}
-
 const styles = StyleSheet.create({
   imgBackground: { width: '100%', height: '100%' },
 });
