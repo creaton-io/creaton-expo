@@ -3,6 +3,16 @@ import { View, Text, ImageBackground, StyleSheet } from 'react-native';
 import { CustomInput, Separator, Button } from '../../../components';
 import Helpers from '../../../utils/Helpers';
 
+// import ethers js and Magic 
+import "@ethersproject/shims"
+
+import { Magic } from '@magic-sdk/react-native';
+import { ethers } from "ethers";
+
+// Magic API Key
+const MAGIC_KEY = new Magic('pk_live_55D93A0BD91B3D6E'); // ✨
+
+
 const EmailSignUpScreen = () => {
   const [form, setForm] = useState({
     email: {
@@ -29,6 +39,7 @@ const EmailSignUpScreen = () => {
           <Text style={{ fontSize: 30, fontWeight: '700', color: 'white' }}>
             Enter Your Email
           </Text>
+          
           <Separator height={'35%'} />
           <CustomInput
             placeholder='Email'
@@ -60,17 +71,38 @@ const EmailSignUpScreen = () => {
           }}
         >
           <Button
-            handleClick={() => console.log('test')}
+            handleClick={ async () => {
+              console.log("Button clicked");
+
+              // Will try to send auth to email in the form.email form. 
+              await MAGIC_KEY.auth.loginWithMagicLink({ email: form.email.value });
+            }}
             buttonText='SUBMIT'
             loading={false}
             disabled={false}
             backgroundColor={'#F87575'}
           />
         </View>
+
+        <MAGIC_KEY.Relayer /> 
+
       </View>
     </ImageBackground>
   );
 };
+
+
+//handles submit button
+async function submitButton() {
+  // Check for email login 
+
+  // if email is filled out, proceed to auth
+  
+  // if not, show alert 
+
+   await MAGIC_KEY.auth.loginWithMagicLink({ email: 'your.email@example.com' });
+
+}
 
 const styles = StyleSheet.create({
   imgBackground: { width: '100%', height: '100%' },
