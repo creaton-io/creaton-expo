@@ -1,9 +1,16 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { Input } from 'react-native-elements';
-import SignUpScreen from '../../navigator/Application/screens/SignUpScreen';
 
-const CustomOutlineInput = () => {
+interface OutlineInputChildProps {
+  placeholder: string;
+  title: string;
+}
+
+const CustomOutlineInput: React.FC<OutlineInputChildProps> = ({
+  title,
+  placeholder,
+}) => {
   return (
     <React.Fragment>
       <Text
@@ -16,10 +23,10 @@ const CustomOutlineInput = () => {
           color: '#FFFFFF',
         }}
       >
-        BIO
+        {title}
       </Text>
       <Input
-        placeholder='Artist/Painter'
+        placeholder={placeholder}
         style={{ paddingLeft: 10 }}
         inputContainerStyle={{
           borderTopWidth: 1,

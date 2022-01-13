@@ -8,7 +8,7 @@ import {
   Separator,
 } from '../../../components';
 
-const SignUpScreen = () => {
+const SignUpScreen = ({ navigation }) => {
   return (
     <LinearGradient
       colors={['#5A338E', '#37255F', '#281840']}
@@ -41,13 +41,22 @@ const SignUpScreen = () => {
           Please signup first. Your are not a creator yet.
         </Text>
         <View style={{ marginTop: '10%' }}>
-          <CustomOutlineInput />
-          <CustomOutlineInput />
-          <CustomOutlineInput />
-          <CustomOutlineInput />
+          <CustomOutlineInput title={'BIO'} placeholder={'Artist/Painter'} />
+          <CustomOutlineInput
+            title={'SUBSCRIPTION PRICE PER MONTH'}
+            placeholder={'$5'}
+          />
+          <CustomOutlineInput
+            title={'COLLECTION NAME'}
+            placeholder={'My beautiful NFT creations'}
+          />
+          <CustomOutlineInput
+            title={'COLLECTION SYMBOL'}
+            placeholder={'MYART'}
+          />
           <GradientButton
             buttonText='Become a Creator'
-            handleClick={() => {}}
+            handleClick={() => navigation.navigate('Upload')}
             loading={false}
             disabled={false}
             width={335}

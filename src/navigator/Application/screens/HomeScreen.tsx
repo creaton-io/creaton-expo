@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Icons from '../../../icons';
-import { GradientButton, Header } from '../../../components';
+import { GradientButton, Header, Separator } from '../../../components';
 import { Input } from 'react-native-elements';
 
 const HomeScreen = ({ navigation }) => {
@@ -47,7 +47,7 @@ const HomeScreen = ({ navigation }) => {
           style={{
             height: 100,
             width: 359,
-            backgroundColor: 'white',
+            backgroundColor: '#FFFFFF12',
             borderRadius: 13,
             flexDirection: 'row',
             alignItems: 'center',
@@ -63,11 +63,51 @@ const HomeScreen = ({ navigation }) => {
             }}
           />
           <View style={{ marginLeft: 10 }}>
-            <Text>Creaton</Text>
-            <Text>89 Followers</Text>
-            <Text>$6 / month</Text>
+            <Text
+              style={{
+                fontWeight: '800',
+                fontSize: 16,
+                lineHeight: 17,
+                color: '#FFFFFF',
+              }}
+            >
+              Creaton
+            </Text>
+            <Separator height={3} />
+            <Text
+              style={{
+                fontWeight: '400',
+                fontSize: 14,
+                lineHeight: 17,
+                color: '#D4D1E1',
+              }}
+            >
+              <Text
+                style={{
+                  fontWeight: '800',
+                  fontSize: 14,
+                  lineHeight: 17,
+                  color: '#FFFFFF',
+                }}
+              >
+                89
+              </Text>
+              <Separator width={3} />
+              Followers
+            </Text>
+            <Separator height={3} />
+            <Text
+              style={{
+                fontWeight: '400',
+                fontSize: 14,
+                lineHeight: 16,
+                color: '#FFFFFF',
+              }}
+            >
+              $6 / month
+            </Text>
           </View>
-          <View style={{ marginLeft: '8%' }}>
+          <View style={{ marginLeft: '22%' }}>
             <GradientButton
               buttonText='Subscribe'
               handleClick={() => navigation.navigate('Creator')}

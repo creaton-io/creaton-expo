@@ -8,6 +8,7 @@ import WalletScreen from './screens/WalletScreen';
 import CreateScreen from './screens/CreateScreen';
 import CreatorScreen from './screens/CreatorScreen';
 import SignUpScreen from './screens/SignUpScreen';
+import UploadScreen from './screens/UploadScreen';
 import { Ionicons } from '@expo/vector-icons';
 
 const { Navigator, Screen } = createNativeStackNavigator();
@@ -87,6 +88,11 @@ const ApplicationStack = () => {
       <Screen
         name='SignUp'
         component={SignUpScreen}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        name='Upload'
+        component={UploadScreen}
         options={{ headerShown: false }}
       />
     </Navigator>
