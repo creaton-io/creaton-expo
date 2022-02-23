@@ -1,9 +1,25 @@
 import React, { useState } from 'react';
-import { View, Text, ImageBackground, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  ImageBackground,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import { CustomInput, Separator, Button } from '../../../components';
 import Helpers from '../../../utils/Helpers';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-const EmailSignUpScreen = () => {
+type RootStackParamList = {
+  EmailSignUp: undefined;
+};
+
+interface EmailPageProps {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'EmailSignUp'>;
+  goBack: () => void;
+}
+
+const EmailSignUpScreen = ({ navigation }: EmailPageProps) => {
   const [form, setForm] = useState({
     email: {
       value: '',
@@ -66,6 +82,18 @@ const EmailSignUpScreen = () => {
             disabled={false}
             backgroundColor={'#F87575'}
           />
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 14,
+                fontWeight: '500',
+                marginTop: 10,
+              }}
+            >
+              START OVER
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     </ImageBackground>

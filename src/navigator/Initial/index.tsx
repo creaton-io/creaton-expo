@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import AuthenticationStack from '../Authentication';
+import ApplicationStack from '../Application';
 
 export default () => {
   const [ready, setReady] = useState(false);
@@ -23,5 +24,5 @@ export default () => {
   //   initialize();
   // }, []);
 
-  return <AuthenticationStack />;
+  return <ApplicationStack />;
 };
